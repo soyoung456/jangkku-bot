@@ -103,7 +103,7 @@ body { margin: 0; }
   padding: 12px 14px 14px;
   background: var(--bg);
   color: var(--text);
-  border-radius: 22px;          /* 독립 카드 느낌 */
+  border-radius: 0;          /* 독립 카드 느낌 */
   box-shadow: var(--shadow);
   overflow: hidden;             /* 내부 스크롤을 위해 */
   font-family: ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, "Noto Sans", "Apple SD Gothic Neo", Pretendard, sans-serif;
@@ -163,8 +163,6 @@ body { margin: 0; }
   box-shadow: var(--shadow);
 
 }
-
-
 
 /* 썸네일 프레임만 남기고 내부 이미지는 숨김 */
 .cm-thumb {
@@ -235,7 +233,7 @@ body { margin: 0; }
   width: 36px; height: 32px;   /* 아이콘만 들어가는 정사각형에 가깝게 */
   border-radius: 10px;
   border: 1px solid #f8b858;
-  background: #f7dbb0;
+  background: #fff7e6;
   color: #ffc266;
   cursor: pointer;
 }
@@ -361,7 +359,7 @@ body { margin: 0; }
 /* 하단 CTA */
 .cm-cta {
   display: block;
-  width: 90%; /* 전체 폭보다 살짝 여백만 줘서 자연스럽게 */
+  width: 100% !important;
   margin: 12px auto 0; /* auto로 중앙 배치 */
   height: 48px;
   border: none;
@@ -372,8 +370,6 @@ body { margin: 0; }
   background: #FF9900; 
   cursor: pointer;
   transition: background 0.25s;
-
-  /* 기본 색상: 핫핑크 */
   background: linear-gradient(180deg, #FF9900 0%, #ff9900 100%);
   box-shadow: 0 6px 18px rgba(255, 47, 123, 0.25);
   transition: background 120ms ease, transform 60ms ease, opacity 120ms ease;
@@ -494,3 +490,9 @@ body{ background:var(--bg); font-family:-apple-system,BlinkMacSystemFont,"SF Pro
 .cm-summary .cm-cta:active {
   background: linear-gradient(180deg, #FF9900 0%, #FF9900 100%);
 }
+
+.cm-summary .cm-cta { 
+  width: 100% !important; 
+  margin: 12px 0 0 !important;  /* 가운데 정렬 마진 제거 */
+}
+

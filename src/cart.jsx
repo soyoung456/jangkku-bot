@@ -1,7 +1,10 @@
 import { useMemo, useState } from "react";
+import { useNavigate } from "react-router-dom";
 import "./cart.css";
 
+
 export default function CartPage({ initialItems }) {
+  const nav = useNavigate();
   const [items, setItems] = useState(
     initialItems ?? [
       { id: "p1", name: "사과", price: 5000, qty: 1, img: "/vite.svg" },
@@ -36,8 +39,11 @@ export default function CartPage({ initialItems }) {
 
 
   const checkout = () => {
-    if (!items.length) return alert("장바구니가 비어 있어요.");
-    alert(`결제 진행\n총액: ₩${total.toLocaleString()}`);
+    if (!items.length) {
+      alert("장바구니가 비어 있어요.");
+      return;
+    }
+    nav("/pay", { state: { items, total } });
   };
 
   return (

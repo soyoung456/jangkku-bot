@@ -1,0 +1,264 @@
+/* 상태바  */
+.ios-statusbar.clean{
+  height: 20px;                   
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  padding: 0 10px;                   
+  background:#fff;
+  color:#0b0f18;
+  font-weight:700;
+  font-size:12px;            
+  letter-spacing:.2px;
+  user-select:none;
+  border-bottom: none;              
+}
+.ios-statusbar.clean .left{ font-weight:700; font-size:16px; color:#0b0f18; font-variant-numeric: tabular-nums; }
+.ios-statusbar.clean .right{ display:flex; align-items:center; gap:6px; line-height:0; }
+.ios-statusbar.clean .icon{ width:20px; height:20px; }
+.ios-statusbar.clean .icon.wifi{ margin-left:-4px; }
+
+.battery{ position:relative; width:18px; height:9px; border:1.8px solid #0b0f18; border-radius:3px; display:block; }
+.battery .fill{ position:absolute; left:1.5px; top:1.5px; bottom:1.5px; right:3px; background:#0b0f18; border-radius:1.5px; }
+.battery .cap{ position:absolute; right:-3px; top:50%; width:3px; height:6px; background:#0b0f18; transform:translateY(-50%); border-radius:1px; }
+
+/* === [OVERRIDE] iOS 탑바: 중앙 타이틀 + 얇은 헤어라인 === */
+.ios-navbar.clean{
+  height: 52px !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  background: #fff !important;
+  border-bottom: 1px solid rgba(0,0,0,.08) !important;
+  margin-bottom: 0 !important;  /* cart와 동일하게 */
+  box-shadow: none !important;
+}
+
+/* 왼쪽 화살표(절대 위치) */
+.ios-navbar.clean .back{
+  position:absolute;
+  left:10px;
+  top:50%;
+  transform:translateY(-50%);
+  background:none;
+  border:none;
+  padding:0;
+  color:#111;
+  cursor:pointer;
+  font-size:18px;  /* 화살표 크기 */
+  line-height:1;
+}
+
+/* 중앙 타이틀(결제) */
+.ios-navbar.clean .title{
+  font-family:"SF Pro Display",-apple-system,BlinkMacSystemFont,"Helvetica Neue","Noto Sans KR",sans-serif;
+  font-weight:700;
+  font-size:16px;
+  color:#111;
+  line-height:1;
+}
+
+/* ==== PAY 상단부를 CART와 동일하게 맞추는 최종 오버라이드 ==== */
+
+/* 1) 상태바: cart.css의 .ios-statusbar.clean 과 동일 */
+.ios-statusbar.clean{
+  height: 28px;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  padding:0 12px;
+  background:#fff;
+  /* cart.css와 동일하게: 폰트 관련은 자식에서 처리 */
+}
+.ios-statusbar.clean .left{
+  font-weight:700;
+  font-size:16px;
+  color:#0b0f18;
+  font-variant-numeric: tabular-nums;
+}
+.ios-statusbar.clean .right{
+  display:flex;
+  align-items:center;
+  gap:6px;
+  line-height:0;
+}
+.ios-statusbar.clean .icon{ width:20px; height:20px; display:block; }
+.ios-statusbar.clean .icon.wifi{ margin-left:-4px; }
+
+/* 2) 탑바: cart.css의 .ios-navbar.clean 과 동일(상단 고정 아님) */
+.ios-navbar.clean{
+  position:relative;                    /* cart: relative */
+  height:52px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  background:#fff;
+  border-bottom:1px solid rgba(0,0,0,.06);
+  box-shadow: none;        /* cart에는 box-shadow 없음 */
+  margin-bottom: 4px              
+}
+.ios-navbar.clean .title{
+  font-weight:700; font-size:16px; color:#111;
+}
+.ios-navbar.clean .back{
+  position:absolute; left:10px; top:50%; transform:translateY(-50%);
+  background:none; border:none; padding:0; color:#111; cursor:pointer;
+  font-size:18px; line-height:1;
+}
+
+/* 3) 프레임은 각 모서리(네모)로 고정 */
+.cart-mobile{
+  border-radius: 0 !important;
+  overflow: hidden;
+}
+
+/* === pay 페이지 상단 위치 보정 === */
+.viewport-center {
+  display: flex !important;
+  justify-content: center !important;
+  align-items: flex-start !important;  /* 중앙 → 상단 기준으로 */
+  padding-top: 40px;                   /* cart와 비슷한 상단 위치 확보 */
+  background:#fff !important;
+}
+
+.cart-mobile {
+  margin-top: 0 !important;
+  background:#fff !important;
+}
+
+/* 상단 고정 + 본문 구성 */
+.pay-fixed-layout{
+  display:flex;
+  flex-direction:column;
+  height:700px;              /* cart와 동일 높이 */
+  border-radius:0;
+  overflow:hidden;
+}
+.ios-statusbar.clean,
+.ios-navbar.clean{ flex:none; }
+
+.divider-line{ height:1px; background:rgba(0,0,0,.08); }
+
+/* ---- 텍스트-이미지 간격을 안전하게 줄이기 ---- */
+.ps-header{
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  gap:2px;             /* 제목-날짜 간격 최소 */
+  margin-bottom:6px;   /* 날짜-이미지 간격(안전값) */
+}
+
+.ps-title{ margin:6px 0 0; line-height:1.2; }
+.ps-sub  { margin:0;       line-height:1.1; display:block; }
+
+
+/* ---- 이미지 카드 ---- */
+.ps-hero{
+  position: relative;
+  width: 100%;
+  background: #fff;
+  border-radius: 16px;
+  overflow: visible;             /* 둥근 모서리 유지 */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0px;               /* 가장자리 여백(선택) */
+  margin: 0 0 8px;
+  box-shadow: none; 
+}
+
+/* ✅ 이미지가 절대 잘리지 않도록: 고유 비율 유지 + 높이 자동 */
+.ps-hero img{
+  width: 100%;
+  height: auto;               /* ← 핵심: 잘림 방지 */
+  max-height: 270px;          /* 화면 고정 높이(700px) 안에서만 제한 */
+  object-fit: contain;        /* 안전망 (잘릴 일 없지만 유지) */
+  display: block;
+  background: #fff;
+}
+
+/* 총 결제 금액 아래에만 구분선 추가 */
+.ps-total-label {
+  font-weight: 700;
+  color: #111;
+}
+
+.ps-total-price {
+  font-weight: 800;
+  color: #111;
+}
+
+/* 총 결제 금액 블록 (중앙 정렬 + 강조) */
+.ps-total-block {
+  text-align: center;
+  background: linear-gradient(180deg, #fff7e6, #fffaf0);
+  border: 1px solid rgba(100, 153, 0, 0.25);
+  border-radius: 10px;
+  padding: 8px 0;
+  margin-top: 10px;
+  margin-bottom: 12px;
+  box-shadow: 0 2px 8px rgba(255, 153, 0, 0.1);
+}
+
+.ps-total-block .ps-total-label {
+  font-size: 13px;
+  color: #444;
+  font-weight: 600;
+  margin-bottom: 2px;
+}
+
+.ps-total-block .ps-total-price {
+  font-size: 20px;
+  font-weight: 800;
+  color: #111;
+}
+
+/* 목록 헤더 */
+.ps-list-header {
+  font-weight: 700;
+  font-size: 16px;       /* 🔹 시각적으로 살짝 작게 (조화 있게) */
+  margin-top: 0;         /* 🔹 위쪽 여백 제거 */
+  margin-bottom: 4px;    /* 🔹 아래쪽 여백만 살짝 */
+}
+
+/* ✅ 주문 목록만 스크롤 */
+.ps-list-wrap{
+  max-height: 130px;       /* 스크롤 높이 한도 (원하면 200~300px로 조절) */
+  overflow-y: auto;
+  border: 1px solid rgba(0,0,0,.08);
+  border-radius: 6px;
+  box-shadow: 0 4px 12px rgba(22,34,51,.06);
+  padding: 6px 15px;
+}
+
+/* 리스트 스타일 */
+.ps-list{ list-style:none; margin:0; padding:0; }
+.ps-row{
+  display:grid;
+  grid-template-columns: 1fr auto auto;
+  gap:10px; align-items:center;
+  padding:10px 0;
+  border-top:1px dashed rgba(0,0,0,.08);
+}
+.ps-row:first-child{ border-top:0; }
+.ps-name{ font-weight:600; color:#111; }
+.ps-qty{ color:#6b7280; }
+.ps-price{ font-weight:700; color:#111; }
+.ps-empty{ text-align:center; color:#8a8f98; padding:28px 0; }
+
+/* 하단 버튼(목록 밖에 위치 → 항상 보임) */
+.ps-home-btn{
+  margin-top: -5px;
+  height: 48px;
+  width: 100%;
+  border: none;
+  border-radius: 12px;
+  font-weight: 800;
+  font-size: 16px;
+  color: #fff;
+  background: linear-gradient(180deg, #FF9900 0%, #FF9900 100%);
+  box-shadow: 0 8px 22px rgba(34,197,94,.25);
+  cursor: pointer;
+}
+
+

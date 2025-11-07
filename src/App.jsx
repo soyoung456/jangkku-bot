@@ -1,6 +1,12 @@
-// src/App.jsx
-import CartPage from "./cart.jsx";   // 경로 주의!
+import { Routes, Route } from "react-router-dom";
+import CartPage from "./cart.jsx";
+import PayPage from "./pay.jsx";
 
 export default function App() {
-  return <CartPage />;               // 장바구니 페이지만 보여줌
+  return (
+    <Routes>
+      <Route path="/" element={<CartPage />} />
+      <Route path="/pay" element={<PayPage />} />
+    </Routes>
+  );
 }

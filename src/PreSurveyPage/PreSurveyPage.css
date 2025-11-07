@@ -1,0 +1,161 @@
+/* ===== 기본 설정 ===== */
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background-color: #fafafa;
+  margin: 0;
+  font-family: "Pretendard", sans-serif;
+}
+
+/* ===== 컨테이너 ===== */
+.survey-container {
+  width: 400px;
+  height: 700px;
+  background: #fff;
+  border-radius: 20px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+  padding: 28px 24px 36px;
+  display: flex;
+  flex-direction: column;
+  overflow-y: auto;
+}
+
+.survey-container::-webkit-scrollbar {
+  width: 6px;
+}
+.survey-container::-webkit-scrollbar-thumb {
+  background: #ffb84d;
+  border-radius: 6px;
+}
+
+/* ===== 헤더 (챗봇 느낌만 살짝 유지) ===== */
+.survey-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 18px;
+}
+
+.back-btn {
+  background: none;
+  border: none;
+  font-size: 20px;
+  cursor: pointer;
+  color: #333;
+  transform: translateY(1px);
+}
+
+.survey-title {
+  font-weight: 600;
+  font-size: 17px;
+  color: #333;
+  text-align: center;
+  flex: 1;
+}
+
+/* ===== 인트로 텍스트 ===== */
+.survey-container h1 {
+  font-size: 20px;
+  font-weight: 700;
+  color: #333;
+  margin-top: 8px;
+  margin-bottom: 6px;
+}
+
+.survey-container p {
+  font-size: 14px;
+  color: #777;
+  margin-bottom: 22px;
+}
+
+/* ===== 섹션 타이틀 ===== */
+h3 {
+  font-size: 15px;
+  font-weight: 600;
+  color: #444;
+  margin: 18px 0 8px;
+}
+
+/* ===== 옵션 버튼 ===== */
+.option-group {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  justify-content: flex-start;
+}
+
+.option-btn {
+  flex: 1 1 calc(33.33% - 10px); /* ✅ 한 줄에 3개씩 */
+  text-align: center;
+  border: 1px solid #ddd;
+  background: #fff;
+  border-radius: 18px;
+  padding: 10px 0;
+  font-size: 13px;
+  color: #333;
+  cursor: pointer;
+  transition: 0.2s;
+  min-width: 90px; /* 버튼이 너무 작아지지 않게 */
+  box-sizing: border-box;
+}
+
+.option-btn:nth-child(4),
+.option-btn:nth-child(5) {
+  flex: 1 1 calc(50% - 10px); /* ✅ 4번째, 5번째는 2개씩 정렬 */
+}
+
+.option-btn:hover {
+  border-color: #ffb84d;
+  background: #fff7eb;
+}
+
+.option-btn.active {
+  background: #ff9900;
+  color: #fff;
+  border-color: #ff9900;
+}
+
+/* ===== 입력창 ===== */
+.allergy-input {
+  width: 100%;
+  border: 1px solid #ddd;
+  border-radius: 12px;
+  padding: 10px 12px;
+  font-size: 14px;
+  outline: none;
+  background: #f9f9f9;
+  transition: border 0.2s, background 0.2s;
+  margin-bottom: 10px;
+  color: #000;
+}
+
+.allergy-input:focus {
+  border-color: #ff9900;
+  background: #fff;
+}
+
+/* ===== 제출 버튼 ===== */
+.submit-btn {
+  margin-top: 28px;
+  width: 100%;
+  background: #ff9900;
+  color: #fff;
+  border: none;
+  border-radius: 12px;
+  padding: 14px 0;
+  font-size: 15px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.2s, transform 0.1s;
+  box-shadow: 0 3px 8px rgba(255, 153, 0, 0.25);
+}
+
+.submit-btn:hover {
+  background: #e68900;
+}
+
+.submit-btn:active {
+  transform: scale(0.98);
+}
